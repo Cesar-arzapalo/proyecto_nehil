@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+       {% block head_content %}{% endblock %}
+
+       {% load static %}
+      <!-- Bootstrap Css -->
+      <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+      <!-- Bootstrap Css -->
+        {% block referencias %}
+        {% endblock %}}
+   </head>
+   <body>
+
+      <div class="login-box">
+
+          {% block error %}
+          {% endblock %}
+          {% block container %}
+          {% endblock %}
+
+
+
+      </div>
+
+
+
+   </body>
+</html>

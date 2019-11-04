@@ -1,0 +1,59 @@
+{% extends "users/base.html" %}
+
+
+
+{% block head_content%}
+<title>REGISTRAR</title>
+{% endblock %}
+
+{% block referencias %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/styleregis2.css' %}">
+{% endblock %}
+
+{% block container %}
+<h1>Registro de Usuario:<p name="usuario"> ( {{ request.user.username }} )</p> </h1><br><br>
+
+{% if name%}
+
+<p class="alert alert-danger">{{name}}</p>
+{% endif%}
+
+{% if error%}
+
+<p class="alert alert-danger">{{error}}</p>
+{% endif%}
+    <form method="POST" action="{% url 'signup2' %}">
+
+        {% csrf_token %}
+
+             <!-- apellidos-->
+
+            {% if request.user.perfil.tipo_usuario == 'PROFESOR' or request.user.perfil.tipo_usuario == 'profesor' %}
+            <label >PROFESION</label><br><br>
+             <input type="text" placeholder="profesion" name="profesion" required>
+            {% endif %}
+
+            {% if request.user.perfil.tipo_usuario == 'ALUMNO' or request.user.perfil.tipo_usuario == 'alumno' %}
+
+            <label >SELECCIONAR FOTO</label><br><br>
+             <input type="file" name="imagen" required>
+
+            {% endif %}
+            <br>
+
+            <label >Numero</label>
+             <input type="number" placeholder="+9999" name="numero" required>
+
+            <br>
+
+             <input type="submit" value="CONFIRMAR">
+
+
+			 <!-- boton user/admin-->
+            <a class="btn btn-dark" href="{% url 'logout' %}" role="button">CANCELAR</a>
+
+
+    </form>
+
+{% endblock %}

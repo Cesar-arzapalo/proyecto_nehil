@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+       {% block head_content %}{% endblock %}
+
+       {% load static %}
+      <!-- Bootstrap Css -->
+      <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+      <!-- Bootstrap Css -->
+
+      <link rel="stylesheet" href="{% static 'css/stylelogin1.css' %}">
+   </head>
+   <body>
+
+      <div class="login-box">
+         <img class="avatar" src="img/logo-test.png" alt="logito">
+         <h1>Login</h1>
+
+          {% block container %}
+          {% endblock %}
+
+         <form name="form1">
+             <!-- USERNAME-->
+             <label for="username">Username </label>
+             <input type="text" name="txt" placeholder="Enter Username">
+
+             <!-- PASSWORD-->
+             <label for="password">Password </label>
+             <input type="password" name="num" placeholder="Enter Password">
+
+             <!-- boton user/admin-->
+             <input type="submit" value="Log In">
+
+
+             <!-- si se olvido su contraseña¡¡-->
+             <a href="contra.html" >Olvido su Contraseña</a><br>
+             <a href="registro1.html">Registrarse</a>
+
+         </form>
+
+      </div>
+
+
+
+   </body>
+</html>

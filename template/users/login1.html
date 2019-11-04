@@ -1,0 +1,43 @@
+{% extends "users/base.html" %}
+
+{% block head_content %}
+<title>sinegy LOGIN</title>
+{% endblock %}
+
+{% block referencias %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/stylelogin1.css' %}">
+{% endblock %}
+
+
+{% block container %}
+
+<img class="avatar" src="{% static 'img/logo-test.png' %}" alt="logito">
+<h1>Login</h1>
+
+{% if error%}
+
+<p class="alert alert-danger">{{error}}</p>
+{% endif%}
+
+<form method="POST" action="{% url 'login' %}">
+
+    {% csrf_token %}
+             <!-- USERNAME-->
+             <label >Username </label>
+             <input type="text" name="user" placeholder="Enter Username" required>
+
+             <!-- PASSWORD-->
+             <label >Password </label>
+             <input type="password" name="pass" placeholder="Enter Password" required>
+
+             <!-- boton user/admin-->
+             <input type="submit" value="Log In">
+
+
+             <!-- si se olvido su contraseña¡¡-->
+             <a href="{% url "signup" %}">Registrarse</a>
+
+         </form>
+
+{% endblock %}

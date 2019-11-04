@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Perfil de Usuario</title>
+	<meta charset="utf-8">
+
+    {% load static %}
+	<link rel="stylesheet" href="{% static 'css/styleperfilU.css' %}">
+
+	<!-- Bootstrap Css -->
+    <link href="{% static 'css/bootstrap.css' %}" type="text/css" media="all" />
+    <!-- Bootstrap Css -->
+    <script src="{% static 'js/jquery-2.2.3.min.js' %}"></script>
+</head>
+<body>
+	<div class="Slidebar">
+		<h2>MENU</h2>
+		<ul>
+			<li><a href="perfilUsuario.html">Perfil</a></li>
+			<li><a href="historial.html">Historial de Asistencias</a></li>
+			<li><a href="{% url "logout" %}">Cerrar Cesión</a></li>
+		</ul>
+	</div>
+
+	<div class="contenido">
+		<img src="{% static 'img/barrita.png' %}" alt="" class="menu-bar">
+
+
+		<form name="form">
+
+			<h1>Perfil de Usuario</h1><br><br><br>
+
+            <label for="apellidos">Apellidos </label>
+            <input type="text" placeholder="Enter ">
+
+            <label for="nombres">Nombres </label>
+            <input type="text" placeholder="Enter ">
+
+            <label for="nombres">Código </label>
+            <input type="text" placeholder="Enter ">
+
+            <input type="submit" value="Modificar Perfil")">
+
+		</form>
+	</div>
+    <script src="{% static 'js/abrir.js' %}"></script>
+
+</body>
+</html>

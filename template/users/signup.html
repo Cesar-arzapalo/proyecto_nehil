@@ -1,0 +1,49 @@
+{% extends "users/base.html" %}
+
+{% block head_content%}
+<title>REGISTRAR</title>
+{% endblock %}
+
+{% block referencias %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/styleregis1.css' %}">
+{% endblock %}
+
+{% block container %}
+<h1>Registro de Usuario</h1><br><br>
+
+{% if error%}
+
+<p class="alert alert-danger">{{error}}</p>
+{% endif%}
+
+
+    <form method="POST" action="{% url 'signup' %}">
+
+        {% csrf_token %}
+
+             <!-- USERNAME-->
+             <label>NOMBRE DEL USUSARIO </label>
+             <input type="text" placeholder="Enter New Username" name="username" required>
+
+             <!-- PASSWORD-->
+             <label>CONTRASEÑA </label>
+             <input type="password" placeholder="Enter Password" name="password" required>
+
+			 <!--  new PASSWORD confirmed-->
+             <label >CONFIRMAR CONTRASEÑA </label>
+             <input type="password" placeholder="Enter Password Confirmed" name="password_confirmation" required><br><br>
+
+             <!-- boton user/admin-->
+
+
+            <input type="submit" value="CONFIRMAR">
+
+			       <!-- boton user/admin-->
+             <a class="btn btn-dark" href="{% url 'login' %}" role="button">VOLVER</a>
+
+
+         </form>
+
+{% endblock %}
+

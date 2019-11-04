@@ -1,0 +1,63 @@
+{% extends "users/base.html" %}
+
+
+
+{% block head_content%}
+<title>REGISTRAR</title>
+{% endblock %}
+
+{% block referencias %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/styleregis2.css' %}">
+{% endblock %}
+
+{% block container %}
+<h1>Registro de Usuario:<p name="usuario"> ( {{ request.user.username }} )</p> </h1><br><br>
+
+{% if name%}
+
+<p class="alert alert-danger">{{name}}</p>
+{% endif%}
+
+{% if error%}
+
+<p class="alert alert-danger">{{error}}</p>
+{% endif%}
+    <form method="POST" action="{% url 'signup1' %}">
+
+        {% csrf_token %}
+
+             <!-- apellidos-->
+             <label >Apellidos</label>
+             <input type="text" placeholder="Apellidos" name="last_name" required>
+
+             <!-- nombres-->
+             <label >Nombre</label>
+             <input type="text" placeholder="Nombre" name="first_name" required>
+
+			 <!--  codigo-->
+             <label >Correo</label>
+             <input type="email" placeholder="Correo" name="correo" required>
+
+             <label for="categoria">Categoria</label><br>
+             <select class="form-control" id="exampleFormControlSelect1" name="select">
+              <option>PROFESOR</option>
+              <option>ALUMNO</option>
+
+            </select>
+            <br>
+
+             <!-- boton user/admin-->
+             <input type="submit" value="CONFIRMAR">
+
+
+			 <!-- boton user/admin-->
+            <a class="btn btn-dark" href="{% url 'logout' %}" role="button">CANCELAR</a>
+
+
+    </form>
+
+{% endblock %}
+
+
+
